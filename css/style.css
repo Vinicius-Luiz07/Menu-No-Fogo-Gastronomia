@@ -11,11 +11,7 @@
   --transition-smooth: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
  
-* { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
  
 body {
   font-family: var(--font-body);
@@ -46,9 +42,7 @@ body {
   padding: 2rem 1.5rem;
 }
  
-.hero-content { 
-  max-width: 640px; 
-}
+.hero-content { max-width: 640px; }
  
 .hero-eyebrow {
   color: var(--yellow);
@@ -91,15 +85,8 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
  
-.btn-primary:hover { 
-  transform: translateY(-3px); 
-  box-shadow: 0 14px 34px -6px rgba(255, 106, 0, 0.75); 
-}
-
-.btn-primary:focus-visible { 
-  outline: 3px solid var(--yellow); 
-  outline-offset: 3px; 
-}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 14px 34px -6px rgba(255, 106, 0, 0.75); }
+.btn-primary:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
  
 .btn-nav {
   flex-shrink: 0;
@@ -114,16 +101,9 @@ body {
   transition: background 0.25s ease, transform 0.25s ease;
 }
  
-.btn-nav:hover { 
-  background: var(--orange); 
-  color: var(--black); 
-  transform: scale(1.08); 
-}
-.btn-nav:focus-visible { 
-  outline: 3px solid var(--yellow); 
-  outline-offset: 2px; 
-}
- 
+.btn-nav:hover { background: var(--orange); color: var(--black); transform: scale(1.08); }
+.btn-nav:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+
 .cardapio-section {
   max-width: 1000px;
   margin: 0 auto;
@@ -153,12 +133,13 @@ body {
  
 .cardapio-viewer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
  
 .cardapio-track-wrapper {
-  flex: 1;
+  width: 100%;
   overflow: hidden;
   border-radius: 1.25rem;
   border: 1px solid rgba(255, 183, 3, 0.25);
@@ -166,11 +147,17 @@ body {
   box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.6);
 }
  
+.cardapio-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+ 
 .cardapio-track {
   display: flex;
   transition: transform var(--transition-smooth);
 }
-
+ 
 .cardapio-slide {
   flex: 0 0 100%;
   aspect-ratio: 3 / 4;
@@ -192,7 +179,7 @@ body {
   text-align: center;
   padding: 2rem;
 }
-
+ 
 .fade-in-up {
   opacity: 0;
   transform: translateY(40px);
@@ -201,12 +188,9 @@ body {
 }
  
 @keyframes fadeInUp {
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
-
+ 
 .cardapio-section .fade-in-up {
   animation-play-state: paused;
 }
@@ -216,39 +200,13 @@ body {
 }
  
 @media (prefers-reduced-motion: reduce) {
-  .fade-in-up { 
-    animation: none; 
-    opacity: 1; 
-    transform: none; 
-  }
-  .cardapio-track { 
-    transition: none; 
-  }
+  .fade-in-up { animation: none; opacity: 1; transform: none; }
+  .cardapio-track { transition: none; }
 }
-
+ 
+/* ===== Responsivo ===== */
 @media (max-width: 600px) {
   .cardapio-section { padding: 2.5rem 0.75rem 4rem; }
-
-  .cardapio-viewer { position: relative; gap: 0; }
- 
   .cardapio-track-wrapper { border-radius: 0.75rem; }
- 
   .cardapio-slide { aspect-ratio: 3 / 4.6; }
- 
-  .btn-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1rem;
-    background: rgba(16, 9, 5, 0.6);
-    backdrop-filter: blur(2px);
-  }
- 
-  .btn-nav:hover { transform: translateY(-50%) scale(1.08); }
- 
-  .btn-prev { left: 0.4rem; }
-  .btn-next { right: 0.4rem; }
 }
