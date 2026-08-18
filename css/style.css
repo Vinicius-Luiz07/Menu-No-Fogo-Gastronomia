@@ -1,0 +1,238 @@
+:root {
+  --black: #100905;
+  --black-soft: #1a0f08;
+  --red: #c81d11;
+  --red-dark: #7a0f08;
+  --orange: #ff6a08;
+  --yellow: #ffb703;
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  --bg-image: url('https://i.pinimg.com/736x/89/48/dd/8948dd353dbbc7a4b1e53d1e762efbb5.jpg');
+  --transition-smooth: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: #fff2e6;
+  overflow-x: hidden;
+}
+
+.bg-blur {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(180deg, rgba(16, 9, 5, 0.85), rgba(16, 9, 5, 0.5)),
+  var(--bg-image);
+  background-size: cover;
+  background-position: center;
+  filter: blur(6px);
+  transform: scale(1.1);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.hero-content {
+  max-width: 640px;
+}
+
+.hero-eyebrow {
+  color: var(--yellow);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 6rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  background: linear-gradient(180deg, var(--yellow) 0%, var(--orange) 55%, var(--red) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 40px rgba(255, 106, 0, 0.35);
+}
+
+.hero-subtitle {
+  margin: 1.25rem 0 2.25rem;
+  color: #e6cdb8;
+  font-size: 1.05rem;
+}
+
+.btn-primary {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--black);
+  background: linear-gradient(90deg, var(--yellow), var(--orange));
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 2.5rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px -8px rgba(255, 106, 0, 0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px -6px rgba(255, 106, 0, 0.75);
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+.btn-nav {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid var(--orange);
+  background: rgba(255, 106, 0, 0.12);
+  color: var(--yellow);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn-nav:hover {
+  background: var(--orange);
+  color: var(--black);
+  transform: scale(1.08);
+}
+
+.btn-nav:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.cardapio-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.cardapio-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.cardapio-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: var(--orange);
+}
+
+.counter {
+  color: var(--yellow);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.cardapio-viewer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardapio-track-wrapper {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 183, 3, 0.25);
+  background: var(--black-soft);
+  box-shadow: 0 20px 50px -20px rgb(0, 0, 0, 0.6);
+}
+
+.cardapio-track {
+  display:flex;
+  transition: transform var(--transition-smooth);
+}
+
+.cardapio-slide {
+  flex: 0 0 100%;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardapio-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--black);
+}
+
+.cardapio-slide.empty {
+  color: #a9876c;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.9s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cardapio-section .fade-in-up {
+  animation-play-state: paused;
+}
+
+.cardapio-section.revealed .fade-in-up {
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    animation: none;
+    opacity: 1;
+    transform: origin;
+  }
+  .cardapio-track {
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn-nav {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+  .cardapio-viewer {
+    gap: 0.5rem;
+  }
+}

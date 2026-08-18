@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="C:\Users\vinic\OneDrive\Documentos\Projetos\Menu_NoFogoGastronomia\favicon_nofogo.png" href="favicon/favicon_nofogo.png">
+    <title>Menu</title>
+    <link rel="preconnect" href="https://fonts.google.com">
+    <link rel="preconnect" href="https://fonts.google.com" crossorigin>
+    <link rel= "stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <div class="bg-blur" aria-hidden="true"></div>
+   <header class="hero">
+    <div class="hero-content">
+        <p class="hero-eyebrow fade-in-up"> Sabor que queima</p>
+        <h1 class="hero-title fade-in-up" style="--delay:0.15s">Cardápios</h1>
+        <p class="hero-subtitle fade-in-up" style="--delay:0.3s">Pratos saborosos direto para a sua mesa</p>
+        <button id="btn-ver-cardapio" class="btn-primary fade-in-up" style="--delay:0.45s">Ver Cardápios</button>
+    </div>
+   </header>
+   <section id="cardapio" class="cardapio-section">
+    <div class="cardapio-header fade-in-up">
+        <h2>Nossos Cardápios</h2>
+        <span id="cardapio-counter" class="counter"> 1 / 1</span>
+    </div>
+    
+    <div class="cardapio-viewer fade-in-up" style="--delay:0.15s">
+        <button id="btn-prev" class="btn-nav btn-prev" aria-label="Cardapio anterior">&#10094</button>
+
+        <div class="cardapio-track-wrapper">
+            <div id="cardapio-track" class="cardapio-track"></div>
+        </div>
+
+        <button id="btn-next" class="btn-nav btn-next" aria-label="Próximo cardápio">&#10095</button>
+    </div>
+   </section>
+   <script src="js/script.js"></script>
+</body>
+</html>
