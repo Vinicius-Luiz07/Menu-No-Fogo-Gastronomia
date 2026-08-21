@@ -29,7 +29,7 @@ body {
   var(--bg-image);
   background-size: cover;
   background-position: center;
-  filter: blur(6px);
+  filter: blur(2px);
   transform: scale(1.1);
 }
 
